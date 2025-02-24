@@ -31,6 +31,24 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 
 # Add third-party software packages (The entire repository)
 git clone https://github.com/Lieoxc/openwrt-package.git package/lieo-package
+
+# 处理redis编译
+cp -rf package/lieo-package/redis-patch/Makefile ./feeds/packages/libs/redis/
+
+# 处理mosquitto编译
+cp -rf package/lieo-package/mosquitto-patch/  ./feeds/packages/net/mosquitto/
+
+# 处理postgresql编译
+cp -rf package/lieo-package/postgresql-patch/files/* ./feeds/packages/libs/postgresql/files/
+
+rm -rf package/lieo-package/mosquitto-patch 
+rm -rf package/lieo-package/postgresql-patch 
+rm -rf package/lieo-package/redis-patch
+
+## 暂时不编译 iot和 data_collect
+rm -rf package/lieo-package/data_collect
+rm -rf package/lieo-package/iot
+
 # Add third-party software packages (Specify the package)
 # svn co https://github.com/libremesh/lime-packages/trunk/packages/{shared-state-pirania,pirania-app,pirania} package/lime-packages/packages
 # Add to compile options (Add related dependencies according to the requirements of the third-party software package Makefile)
