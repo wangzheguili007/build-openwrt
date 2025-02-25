@@ -33,6 +33,7 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 git clone https://github.com/Lieoxc/openwrt-package.git package/lieo-package
 
 # 处理redis编译
+cp -rf package/lieo-package/redis-patch/files ./feeds/packages/libs/redis/
 cp -rf package/lieo-package/redis-patch/Makefile ./feeds/packages/libs/redis/
 
 # 处理mosquitto编译
