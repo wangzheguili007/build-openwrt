@@ -18,8 +18,10 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - immortalwrt-redmi-ax6s
           - Lienol-master
           - openwrt-bpir4
+
       
 env:
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
