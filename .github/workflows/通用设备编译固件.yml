@@ -18,7 +18,6 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
-          - immortalwrt-redmi-ax6s
           - Lienol-master
           - openwrt-bpir4
       
