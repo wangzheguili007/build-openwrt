@@ -20,6 +20,8 @@ on:
           - immortalwrt-master
           - immortalwrt-redmi-ax6s
           - immortalwrt-xiaomi-router3
+          - immortalwrt-xiaomi-CR660x
+          - immortalwrt-xiaomi-AX3000T
           - Lienol-master
           - openwrt-bpir4
       
@@ -68,6 +70,10 @@ jobs:
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
           # Set up compilation source code
+          if [[ "${{ inputs.source_branch }}" == *"immortalwrt-xiaomi-AX3000T"* ]]; then
+              REPO_URL="https://github.com/hanwckf/immortalwrt-mt798x.git"
+              REPO_BRANCH="openwrt-21.02"
+              TAGS_NAME="official"
           if [[ "${{ inputs.source_branch }}" == *"openwrt-bpir4"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-24.10"
