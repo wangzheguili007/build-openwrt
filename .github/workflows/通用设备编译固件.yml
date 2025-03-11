@@ -74,7 +74,7 @@ jobs:
               REPO_URL="https://github.com/hanwckf/immortalwrt-mt798x.git"
               REPO_BRANCH="openwrt-21.02"
               TAGS_NAME="official"
-          if [[ "${{ inputs.source_branch }}" == *"openwrt-bpir4"* ]]; then
+          elif [[ "${{ inputs.source_branch }}" == *"openwrt-bpir4"* ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
               REPO_BRANCH="openwrt-24.10"
               TAGS_NAME="official"
