@@ -19,6 +19,7 @@ on:
           - lede-master
           - immortalwrt-master
           - immortalwrt-redmi-ax6s
+          - immortalwrt-xiaomi-router3
           - Lienol-master
           - openwrt-bpir4
       
