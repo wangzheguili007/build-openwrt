@@ -15,8 +15,6 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
 echo "DISTRIB_SOURCECODE='official'" >>package/base-files/files/etc/openwrt_release
 
-# Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.10.1）
-sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 #
 # ------------------------------- Main source ends -------------------------------
 
@@ -32,23 +30,24 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 # Add third-party software packages (The entire repository)
 git clone https://github.com/Lieoxc/openwrt-package.git package/lieo-package
 
+cp package/lieo-package/config_generate  ./package/base-files/files/bin/
+cp package/lieo-package/sysupgrade.conf  ./package/base-files/files/etc/
 # 处理redis编译
-cp -rf package/lieo-package/redis-patch/files ./feeds/packages/libs/redis/
+cp -rf package/lieo-package/redis-patch/files/* ./feeds/packages/libs/redis/files/
 cp -rf package/lieo-package/redis-patch/Makefile ./feeds/packages/libs/redis/
 
 # 处理mosquitto编译
-cp -rf package/lieo-package/mosquitto-patch/  ./feeds/packages/net/mosquitto/
+cp -rf package/lieo-package/mosquitto-patch/*  ./feeds/packages/net/mosquitto/
 
 # 处理postgresql编译
-cp -rf package/lieo-package/postgresql-patch/files/* ./feeds/packages/libs/postgresql/files/
+cp -rf package/lieo-package/postgresql-patch/* ./feeds/packages/libs/postgresql/
 
+# 前面已经拷贝完了，这里删除掉
 rm -rf package/lieo-package/mosquitto-patch 
 rm -rf package/lieo-package/postgresql-patch 
 rm -rf package/lieo-package/redis-patch
-
-## 暂时不编译 iot和 data_collect
-rm -rf package/lieo-package/data_collect
-rm -rf package/lieo-package/iot
+rm -rf package/lieo-package/config_generate
+rm -rf package/lieo-package/sysupgrade.conf
 
 # Add third-party software packages (Specify the package)
 # svn co https://github.com/libremesh/lime-packages/trunk/packages/{shared-state-pirania,pirania-app,pirania} package/lime-packages/packages
