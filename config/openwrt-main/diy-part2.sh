@@ -46,13 +46,15 @@ cp -rf package/lieo-package/postgresql-patch/* ./feeds/packages/libs/postgresql/
 unzip package/lieo-package/iot/files/etc/iot/configs/dist.zip  -d  package/lieo-package/iot/files/etc/iot/configs/
 rm -rf package/lieo-package/iot/files/etc/iot/configs/dist.zip
 
+# wifi默认设置
+cp package/lieo-package/mac80211.sh ./package/kernel/mac80211/files/lib/wifi/
 # 前面已经拷贝完了，这里删除掉
 rm -rf package/lieo-package/mosquitto-patch 
 rm -rf package/lieo-package/postgresql-patch 
 rm -rf package/lieo-package/redis-patch
 rm -rf package/lieo-package/config_generate
 rm -rf package/lieo-package/sysupgrade.conf
-
+rm -rf package/lieo-package/mac80211.sh
 # Add third-party software packages (Specify the package)
 # svn co https://github.com/libremesh/lime-packages/trunk/packages/{shared-state-pirania,pirania-app,pirania} package/lime-packages/packages
 # Add to compile options (Add related dependencies according to the requirements of the third-party software package Makefile)
