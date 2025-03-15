@@ -42,6 +42,10 @@ cp -rf package/lieo-package/mosquitto-patch/*  ./feeds/packages/net/mosquitto/
 # 处理postgresql编译
 cp -rf package/lieo-package/postgresql-patch/* ./feeds/packages/libs/postgresql/
 
+# 前端文件解压
+unzip package/lieo-package/iot/files/etc/iot/configs/dist.zip  -d  package/lieo-package/iot/files/etc/iot/configs/
+rm -rf package/lieo-package/iot/files/etc/iot/configs/dist.zip
+
 # 前面已经拷贝完了，这里删除掉
 rm -rf package/lieo-package/mosquitto-patch 
 rm -rf package/lieo-package/postgresql-patch 
