@@ -52,6 +52,9 @@ cp package/lieo-package/mac80211.sh ./package/kernel/mac80211/files/lib/wifi/
 
 cp package/lieo-package/plugin-monitor ./package/base-files/files/etc/init.d/
 cp package/lieo-package/plugin-monitor.sh ./package/base-files/files/bin/
+
+chmod +x package/lieo-package/data_collect/bin/data_collect
+chmod +x package/lieo-package/iot/bin/iot
 # 前面已经拷贝完了，这里删除掉
 rm -rf package/lieo-package/mosquitto-patch 
 rm -rf package/lieo-package/postgresql-patch 
