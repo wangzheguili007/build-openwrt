@@ -27,7 +27,7 @@ sed -i "s/set system\.@system\[-1\]\.hostname='ImmortalWrt'/set system\.@system\
 # Add luci-app-amlogic
 # svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
-git clone https://github.com/Lieoxc/op_web3Plugin.git package/op_web3Plugin
+git clone https://github.com/wangzheguili007/op_web3Plugin.git package/op_web3Plugin
 ## remove unsupported arm64
 rm -rf package/op_web3Plugin/webPlugin-arm64
 
